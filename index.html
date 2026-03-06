@@ -19,9 +19,9 @@
       --bg: #06060f;
       --bg2: #0c0c1e;
       --bg3: #111128;
-      --card: #13132a;
-      --card2: #1a1a38;
-      --border: rgba(255, 255, 255, 0.07);
+      --card: rgba(19, 19, 42, 0.5);
+      --card2: rgba(26, 26, 56, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
 
       /* DOPAMINE NEONS */
       --orange: #FF6B00;
@@ -90,9 +90,20 @@
       pointer-events: none;
       z-index: 0;
       background-image:
-        linear-gradient(rgba(255, 107, 0, 0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 107, 0, 0.012) 1px, transparent 1px);
+        linear-gradient(rgba(255, 107, 0, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 107, 0, 0.015) 1px, transparent 1px);
       background-size: 44px 44px;
+      animation: moveGrid 30s linear infinite;
+    }
+
+    @keyframes moveGrid {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 44px 44px;
+      }
     }
 
     body::after {
@@ -891,6 +902,111 @@
       display: block;
     }
 
+    /* GLOBAL GLASSMORPHISM (Card styles) */
+    .timer-block,
+    .s-tile,
+    .streak-burst,
+    .sos-trigger,
+    .motive-card,
+    .challenge-card,
+    .ms-card,
+    .level-card,
+    .health-body,
+    .money-hero,
+    .buy-item,
+    .routine-block,
+    .habit-row,
+    .focus-card,
+    .cal-card,
+    .sum-container,
+    .an-card,
+    .an-stat-card,
+    .an-insight,
+    .prog-card,
+    .auth-card,
+    .cel-box,
+    .modal,
+    .toast,
+    .user-dd,
+    .bottom-nav,
+    .badge-cell,
+    .journal-entry,
+    .todo-item {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    /* Enhance Card Depth with subtle glossy top border */
+    .timer-block,
+    .s-tile,
+    .motive-card,
+    .challenge-card,
+    .level-card,
+    .money-hero,
+    .routine-block,
+    .focus-card,
+    .cal-card,
+    .sum-container,
+    .an-card,
+    .prog-card,
+    .auth-card,
+    .cel-box,
+    .modal {
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    /* GLOBAL HOVER / MICRO-ANIMATIONS */
+    .s-tile,
+    .motive-card,
+    .challenge-card,
+    .ms-card,
+    .level-card,
+    .buy-item,
+    .routine-block,
+    .habit-row,
+    .focus-card,
+    .cal-card,
+    .an-card,
+    .an-stat-card,
+    .prog-card,
+    .todo-item {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .s-tile:hover,
+    .motive-card:hover,
+    .challenge-card:hover,
+    .ms-card:hover,
+    .level-card:hover,
+    .buy-item:hover,
+    .routine-block:hover,
+    .habit-row:hover,
+    .focus-card:hover,
+    .cal-card:hover,
+    .an-card:hover,
+    .an-stat-card:hover,
+    .prog-card:hover,
+    .todo-item:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 107, 0, 0.15);
+      border-color: rgba(255, 107, 0, 0.4);
+    }
+
+    button {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    button:active {
+      transform: translateY(1px) scale(0.97);
+    }
+
     /* PAGE SECTIONS */
     .page-section {
       display: none;
@@ -898,7 +1014,19 @@
 
     .page-section.active {
       display: block;
-      animation: fadeUp 0.35s ease;
+      animation: fadeUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* BOTTOM NAV */
@@ -1195,6 +1323,7 @@
       background: linear-gradient(90deg, var(--orange), var(--yellow));
       border-radius: 2px;
       transition: width 0.05s linear;
+      box-shadow: 0 0 12px var(--orange);
     }
 
     .ms-val {
@@ -1768,6 +1897,7 @@
       background: var(--grad-fire);
       border-radius: 2px;
       transition: width 1s ease;
+      box-shadow: 0 0 12px var(--orange);
     }
 
     .ms-status {
@@ -1821,6 +1951,7 @@
       background: var(--grad-fire);
       border-radius: 4px;
       transition: width 1s ease;
+      box-shadow: 0 0 14px var(--orange);
     }
 
     .badges-grid {
@@ -2495,6 +2626,7 @@
       height: 100%;
       border-radius: 2px;
       transition: width 0.1s linear;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
     .fc-note-badge {
