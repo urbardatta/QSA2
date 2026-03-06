@@ -38,8 +38,8 @@
       --purple2: #D88CFF;
       --red: #FF4040;
       --white: #ffffff;
-      --muted: rgba(255, 255, 255, 0.5);
-      --muted2: rgba(255, 255, 255, 0.12);
+      --muted: rgba(255, 255, 255, 0.75);
+      --muted2: rgba(255, 255, 255, 0.15);
 
       /* DOPAMINE GRADIENTS */
       --grad-fire: linear-gradient(135deg, #FF6B00, #FFD60A);
@@ -998,6 +998,33 @@
       border-color: rgba(255, 107, 0, 0.4);
     }
 
+    /* LANGUAGE TOGGLE BUTTON */
+    .lang-toggle {
+      background: rgba(255, 107, 0, 0.1);
+      border: 1px solid rgba(255, 107, 0, 0.4);
+      border-radius: 8px;
+      color: var(--orange);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 4px 9px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255, 107, 0, 0.25);
+    }
+
+    .lang-toggle.bn-active {
+      background: rgba(57, 255, 20, 0.1);
+      border-color: rgba(57, 255, 20, 0.4);
+      color: var(--green);
+    }
+
+
+
     button {
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     }
@@ -1054,7 +1081,7 @@
       align-items: center;
       gap: 2px;
       cursor: pointer;
-      opacity: 0.65;
+      opacity: 1;
       transition: all 0.25s;
       padding: 4px 0;
       position: relative;
@@ -1167,13 +1194,13 @@
       font-size: 0.58rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
     .home-quote {
       font-size: clamp(0.78rem, 2.5vw, 0.92rem);
-      color: rgba(255, 255, 255, 0.8);
+      color: #ffffff;
       font-style: italic;
       margin-bottom: 24px;
       line-height: 1.6;
@@ -1459,7 +1486,7 @@
 
     .streak-sub {
       font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
       margin-top: 6px;
     }
 
@@ -1758,13 +1785,13 @@
 
     .motive-author {
       font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: #ffffff;
       letter-spacing: 1px;
     }
 
     .motive-hint {
       font-size: 0.6rem;
-      color: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
       margin-top: 10px;
     }
 
@@ -2083,7 +2110,7 @@
 
     .health-desc {
       font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
       line-height: 1.5;
     }
 
@@ -2107,7 +2134,7 @@
 
     .money-lbl {
       font-size: 0.68rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: #ffffff;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-top: 4px;
@@ -2495,7 +2522,7 @@
 
     .fc-today {
       font-size: 0.62rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: #ffffff;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -4155,6 +4182,7 @@
     <div class="navbar">
       <div class="nav-brand">NIRVAAN</div>
       <div class="nav-right">
+        <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">বাং</button>
         <div class="sync-dot" id="sync-dot"></div>
         <div class="nav-streak">🔥 <span id="streak-num">0</span>d</div>
         <div class="nav-clock">
@@ -5800,7 +5828,112 @@
       if (name === 'analyzer') { buildAnalyzer(); }
       if (name === 'todo') { buildTodos(); }
     }
+
+    /* ══════════════════════════════════
+       BILINGUAL LANGUAGE TOGGLE (EN / BN)
+    ══════════════════════════════════ */
+    const TEXTS = {
+      en: {
+        eyebrow: 'Bangladesh · GMT+6 · Every second counts',
+        quote: '"Your body starts healing the moment you stop."',
+        years: 'Years', months: 'Months', days: 'Days',
+        hours: 'Hours', min: 'Min', sec: 'Sec',
+        msLabel: 'MS',
+        sos_title: 'I FEEL LIKE SMOKING',
+        sos_sub: 'Tap to fight the craving',
+        navHome: 'HOME', navTodo: 'TODO', navFocus: 'FOCUS',
+        navSummary: 'SUMMARY', navAnalyze: 'ANALYZE',
+        navLevel: 'LEVEL', navHealth: 'HEALTH', navRoutine: 'ROUTINE',
+        streak: 'd', streakLabel: 'DAY STREAK 🔥',
+        offlineBar: '⚡ Offline mode — will sync later',
+        todoPlaceholder: 'Add a task...',
+        todoBtn: '+ Add',
+        sigOut: '🚪 Sign Out', exportData: '📥 Export Data', milestones: '🏆 Milestones',
+        langBtn: 'বাং',
+      },
+      bn: {
+        eyebrow: 'বাংলাদেশ · GMT+6 · প্রতিটি সেকেন্ড গুরুত্বপূর্ণ',
+        quote: '"যে মুহূর্তে তুমি থামো, সে মুহূর্ত থেকেই তোমার শরীর সুস্থ হতে শুরু করে।"',
+        years: 'বছর', months: 'মাস', days: 'দিন',
+        hours: 'ঘণ্টা', min: 'মিনিট', sec: 'সেকেন্ড',
+        msLabel: 'মিলি',
+        sos_title: 'সিগারেট খেতে ইচ্ছে করছে',
+        sos_sub: 'লড়াই করতে চাপুন',
+        navHome: 'হোম', navTodo: 'কাজ', navFocus: 'ফোকাস',
+        navSummary: 'সারাংশ', navAnalyze: 'বিশ্লেষণ',
+        navLevel: 'লেভেল', navHealth: 'স্বাস্থ্য', navRoutine: 'রুটিন',
+        streak: 'দ', streakLabel: 'দিনের ধারা 🔥',
+        offlineBar: '⚡ অফলাইন মোড — পরে সিঙ্ক হবে',
+        todoPlaceholder: 'একটি কাজ লিখুন...',
+        todoBtn: '+ যোগ করুন',
+        sigOut: '🚪 সাইন আউট', exportData: '📥 ডেটা রপ্তানি', milestones: '🏆 মাইলস্টোন',
+        langBtn: 'ENG',
+      }
+    };
+
+    let currentLang = localStorage.getItem('nirvaan_lang') || 'en';
+
+    function applyLang() {
+      const t = TEXTS[currentLang];
+      const btn = document.getElementById('lang-toggle');
+      if (btn) { btn.textContent = t.langBtn; btn.classList.toggle('bn-active', currentLang === 'bn'); }
+
+      // Eyebrow & quote
+      const ey = document.querySelector('.home-eyebrow'); if (ey) ey.textContent = t.eyebrow;
+      const hq = document.querySelector('.home-quote'); if (hq) hq.textContent = t.quote;
+
+      // Timer labels
+      const lblMap = [['t-y', 'years'], ['t-mo', 'months'], ['t-d', 'days'], ['t-h', 'hours'], ['t-m', 'min'], ['t-s', 'sec']];
+      lblMap.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el) { const lbl = el.closest('.t-unit')?.querySelector('.t-lbl'); if (lbl) lbl.textContent = t[key]; }
+      });
+
+      // MS label
+      const msLbl = document.querySelector('.ms-lbl'); if (msLbl) msLbl.textContent = t.msLabel;
+
+      // SOS
+      const sosTtl = document.querySelector('.sos-title'); if (sosTtl) sosTtl.textContent = t.sos_title;
+      const sosSub = document.querySelector('.sos-sub'); if (sosSub) sosSub.textContent = t.sos_sub;
+
+      // Bottom nav labels
+      const navMap = [
+        ['bn-home', 'navHome'], ['bn-todo', 'navTodo'], ['bn-focus', 'navFocus'],
+        ['bn-summary', 'navSummary'], ['bn-analyzer', 'navAnalyze'],
+        ['bn-level', 'navLevel'], ['bn-health', 'navHealth'], ['bn-routine', 'navRoutine']
+      ];
+      navMap.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el) { const lbl = el.querySelector('.bn-label'); if (lbl) lbl.textContent = t[key]; }
+      });
+
+      // Streak label
+      const slbl = document.querySelector('.streak-label'); if (slbl) slbl.textContent = t.streakLabel;
+
+      // Offline bar
+      const ob = document.getElementById('offline-bar'); if (ob) ob.textContent = t.offlineBar;
+
+      // Todo placeholder & button
+      const ti = document.querySelector('.todo-input'); if (ti) ti.placeholder = t.todoPlaceholder;
+      const tadd = document.querySelector('.todo-add-btn'); if (tadd) tadd.textContent = t.todoBtn;
+
+      // User dropdown
+      const ddms = document.querySelector('.user-dd-item:nth-child(2)'); if (ddms) ddms.innerHTML = '🏆 ' + t.milestones.replace('🏆 ', '');
+      const ddex = document.querySelectorAll('.user-dd-item')[2]; if (ddex) ddex.textContent = t.exportData;
+      const ddso = document.querySelector('.user-dd-item.red'); if (ddso) ddso.textContent = t.sigOut;
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      localStorage.setItem('nirvaan_lang', currentLang);
+      applyLang();
+    }
+
+    // Apply language on load
+    window.addEventListener('DOMContentLoaded', () => { setTimeout(applyLang, 300); });
+
   </script>
+
 </body>
 
-  </html>
+    </html>
