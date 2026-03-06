@@ -62,7 +62,6 @@
     body {
       background: var(--bg);
       color: var(--white);
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
       font-family: 'Nunito', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
@@ -1177,13 +1176,12 @@
 
     /* TIMER BLOCK */
     .timer-block {
-      background: linear-gradient(160deg, rgba(255, 107, 0, 0.12) 0%, rgba(13, 13, 40, 0.95) 55%, rgba(191, 90, 242, 0.07) 100%);
-      border: 1px solid rgba(255, 107, 0, 0.4);
+      background: linear-gradient(160deg, rgba(255, 107, 0, 0.08) 0%, rgba(13, 13, 40, 0.95) 55%, rgba(191, 90, 242, 0.07) 100%);
+      border: 1px solid rgba(255, 107, 0, 0.3);
       border-radius: 24px;
       padding: 28px 10px 22px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 80px rgba(255, 107, 0, 0.15), 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 107, 0, 0.2);
       margin: 0 14px;
     }
 
@@ -1244,7 +1242,6 @@
       color: #fff;
       line-height: 1;
       display: block;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       font-weight: 600;
       letter-spacing: 2px;
     }
@@ -1255,9 +1252,8 @@
 
     @keyframes tickPulse {
       0% {
-        transform: scale(1.15);
-        color: var(--yellow2);
-        text-shadow: 0 0 30px rgba(255, 214, 10, 1)
+        transform: scale(1.12);
+        color: var(--yellow);
       }
 
       100% {
@@ -1285,7 +1281,6 @@
       line-height: 1;
       margin-bottom: 22px;
       font-weight: 700;
-      text-shadow: 0 0 16px rgba(255, 107, 0, 0.8);
       opacity: 0.9;
     }
 
@@ -1323,17 +1318,15 @@
       height: 100%;
       background: linear-gradient(90deg, var(--orange), var(--yellow));
       border-radius: 2px;
-      transition: width 0.05s linear;
-      box-shadow: 0 0 12px var(--orange);
+      transition: width 0.1s linear;
     }
 
     .ms-val {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
-      color: var(--yellow2);
+      color: var(--yellow);
       min-width: 34px;
       font-weight: 700;
-      text-shadow: 0 0 8px rgba(255, 214, 10, 0.7);
     }
 
     /* STATS TILES */
@@ -1693,11 +1686,10 @@
 
     .craving-count {
       text-align: center;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Chakra Petch', sans-serif;
       font-size: 3rem;
       color: var(--green);
-      text-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
-      font-weight: 900;
+      font-weight: 700;
     }
 
     .craving-sub {
@@ -1898,7 +1890,6 @@
       background: var(--grad-fire);
       border-radius: 2px;
       transition: width 1s ease;
-      box-shadow: 0 0 12px var(--orange);
     }
 
     .ms-status {
@@ -1952,7 +1943,6 @@
       background: var(--grad-fire);
       border-radius: 4px;
       transition: width 1s ease;
-      box-shadow: 0 0 14px var(--orange);
     }
 
     .badges-grid {
@@ -2087,12 +2077,11 @@
     }
 
     .money-big {
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Chakra Petch', sans-serif;
       font-size: clamp(2.5rem, 8vw, 4rem);
       color: var(--green);
-      text-shadow: 0 0 40px rgba(57, 255, 20, 0.4);
       line-height: 1;
-      font-weight: 900;
+      font-weight: 700;
     }
 
     .money-lbl {
@@ -2627,7 +2616,6 @@
       height: 100%;
       border-radius: 2px;
       transition: width 0.1s linear;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
     .fc-note-badge {
@@ -5793,4 +5781,4 @@
   </script>
 </body>
 
-</html>
+            </html>
