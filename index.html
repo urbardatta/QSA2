@@ -38,8 +38,8 @@
       --purple2: #D88CFF;
       --red: #FF4040;
       --white: #ffffff;
-      --muted: #4a4a7a;
-      --muted2: #2e2e5a;
+      --muted: rgba(255, 255, 255, 0.5);
+      --muted2: rgba(255, 255, 255, 0.12);
 
       /* DOPAMINE GRADIENTS */
       --grad-fire: linear-gradient(135deg, #FF6B00, #FFD60A);
@@ -1162,13 +1162,13 @@
       font-size: 0.58rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.6);
       margin-bottom: 8px;
     }
 
     .home-quote {
       font-size: clamp(0.78rem, 2.5vw, 0.92rem);
-      color: var(--orange2);
+      color: rgba(255, 255, 255, 0.8);
       font-style: italic;
       margin-bottom: 24px;
       line-height: 1.6;
@@ -1176,13 +1176,14 @@
 
     /* TIMER BLOCK */
     .timer-block {
-      background: linear-gradient(160deg, rgba(255, 107, 0, 0.08) 0%, rgba(13, 13, 40, 0.95) 55%, rgba(191, 90, 242, 0.07) 100%);
-      border: 1px solid rgba(255, 107, 0, 0.3);
-      border-radius: 24px;
-      padding: 28px 10px 22px;
+      background: linear-gradient(160deg, rgba(255, 107, 0, 0.10) 0%, rgba(8, 8, 24, 0.98) 50%, rgba(0, 0, 0, 1) 100%);
+      border: 1px solid rgba(255, 107, 0, 0.35);
+      border-radius: 20px;
+      padding: 32px 16px 28px;
       position: relative;
       overflow: hidden;
-      margin: 0 14px;
+      margin: 0;
+      width: 100%;
     }
 
     .timer-block::before {
@@ -1216,34 +1217,49 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: 2px;
-      flex-wrap: wrap;
+      gap: 4px;
+      flex-wrap: nowrap;
+      width: 100%;
     }
 
     .t-unit {
       text-align: center;
-      min-width: 44px;
+      flex: 1;
     }
 
     .t-num-box {
-      background: rgba(255, 107, 0, 0.08);
-      border: 1px solid rgba(255, 107, 0, 0.25);
-      border-radius: 10px;
-      padding: 6px 4px 4px;
+      background: rgba(10, 10, 20, 0.9);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 14px;
+      padding: 10px 6px 8px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 52px;
+      width: 100%;
+      min-width: 56px;
+      position: relative;
+    }
+
+    /* Flip-card center divider line */
+    .t-num-box::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: rgba(255, 107, 0, 0.2);
+      pointer-events: none;
     }
 
     .t-num {
       font-family: 'Chakra Petch', sans-serif;
-      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-size: clamp(2.8rem, 9vw, 5rem);
       color: #fff;
       line-height: 1;
       display: block;
-      font-weight: 600;
-      letter-spacing: 2px;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     .t-num.tick {
@@ -1438,7 +1454,7 @@
 
     .streak-sub {
       font-size: 0.68rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.6);
       margin-top: 6px;
     }
 
@@ -1737,13 +1753,13 @@
 
     .motive-author {
       font-size: 0.68rem;
-      color: var(--orange2);
+      color: rgba(255, 255, 255, 0.55);
       letter-spacing: 1px;
     }
 
     .motive-hint {
       font-size: 0.6rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.4);
       margin-top: 10px;
     }
 
@@ -2062,7 +2078,7 @@
 
     .health-desc {
       font-size: 0.68rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.5;
     }
 
@@ -2086,7 +2102,7 @@
 
     .money-lbl {
       font-size: 0.68rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.55);
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-top: 4px;
@@ -2290,6 +2306,7 @@
       flex: 1;
       font-size: 0.82rem;
       font-weight: 700;
+      color: #fff;
     }
 
     .habit-streak {
@@ -2473,7 +2490,7 @@
 
     .fc-today {
       font-size: 0.62rem;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.55);
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -5781,4 +5798,4 @@
   </script>
 </body>
 
-            </html>
+</html>
